@@ -33,9 +33,6 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional
 
-import matplotlib
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
 import numpy as np
 
 
@@ -234,6 +231,10 @@ class HJBSolverPython:
         """
         Plot optimal bid and ask spreads vs inventory at three time slices.
         """
+        import matplotlib
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+
         c     = self.cfg
         bid, ask, _ = self.solve()
         q_arr = np.arange(-c.Q_max, c.Q_max + 1)
