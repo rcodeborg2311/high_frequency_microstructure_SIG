@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [main, trunk]
+  pull_request:
+    branches: [main]
+
+jobs:
+  cpp-build-test:
+    name: C++ Build & Test
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: sudo apt-get install -y cmake ninja-build
+
+      - name: Configure (Release)
+        run: cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build
+        run: cmake --build build -j$(nproc)
+
+      - name: Run C++ tests
+        run: ctest --test-dir build --output-on-failure
+
+  python-test:
+    name: Python Tests
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Python tests
+        run: pytest tests/ -v --tb=short

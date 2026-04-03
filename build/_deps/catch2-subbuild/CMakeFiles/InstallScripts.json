@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/ridhamap/monostructure_alpha_signal/hf-microstructure/build/_deps/catch2-subbuild/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

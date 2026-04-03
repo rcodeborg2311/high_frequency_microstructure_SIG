@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base reset ──────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #060a14;
+  color: #e2e8f0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: #060a14; }
+::-webkit-scrollbar-thumb { background: #1a2744; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #2d3748; }
+
+/* ── Range input styling ──────────────────────────────────────────────────────── */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* ── Recharts overrides ─────────────────────────────────────────────────────── */
+.recharts-wrapper,
+.recharts-surface {
+  background: transparent !important;
+}
+
+.recharts-legend-item-text {
+  color: #6b7280 !important;
+  font-size: 10px !important;
+}
+
+.recharts-default-tooltip {
+  background: #0f1729 !important;
+  border: 1px solid #1a2744 !important;
+  border-radius: 4px !important;
+}
+
+/* ── Subtle scan-line effect on main bg ──────────────────────────────────────── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.04) 2px,
+    rgba(0, 0, 0, 0.04) 4px
+  );
+  z-index: 9999;
+}
+
+/* ── Number transitions ─────────────────────────────────────────────────────── */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Grid layout for main app ───────────────────────────────────────────────── */
+#root {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}

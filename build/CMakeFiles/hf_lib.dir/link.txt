@@ -1,0 +1,2 @@
+/usr/bin/ar qc libhf_lib.a CMakeFiles/hf_lib.dir/cpp/src/feature_engine.cpp.o CMakeFiles/hf_lib.dir/cpp/src/hawkes_mle.cpp.o CMakeFiles/hf_lib.dir/cpp/src/hjb_solver.cpp.o CMakeFiles/hf_lib.dir/cpp/src/lob_parser.cpp.o
+/usr/bin/ranlib libhf_lib.a

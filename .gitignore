@@ -1,0 +1,32 @@
+# C++ build
+build/
+*.o
+*.a
+*.dylib
+*.so
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+dist/
+.eggs/
+
+# Node / frontend
+frontend/node_modules/
+frontend/dist/
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# macOS
+.DS_Store
+
+# Results / generated
+results/*.png
+results/*.pdf
+results/*.csv
